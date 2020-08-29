@@ -1,0 +1,9 @@
+#  Activar  motor de escritura en apache
+RewriteEngine on
+# Dar instruccion a nuestro motor de escritura  la -d quiere decir buscar por los directorios
+RewriteCond %{REQUEST_FILENAME} !-d
+
+# Buscar por las carpetas que hay en adentro de los directorios como archivos php o htmln
+RewriteCond %{REQUEST_FILENAME} !-f 
+
+RewriteRule ^(.*)$ index.php?url=$1 [QSA,L]
